@@ -7,6 +7,7 @@ import (
 	"golang.org/x/net/http2"
 )
 
+//MyHandler is handler
 type MyHandler struct{}
 
 func (h *MyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
