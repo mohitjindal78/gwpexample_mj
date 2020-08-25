@@ -6,7 +6,12 @@ import (
 )
 
 func df(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World!")
+	//fmt.Fprintf(w, "Hello World!")
+	//fmt.Fprintln(w, r.Header)
+	len := r.ContentLength
+	body := make([]byte, len)
+	r.Body.Read(body)
+	fmt.Fprintln(w, string(body))
 }
 
 func hello(w http.ResponseWriter, r *http.Request) {
