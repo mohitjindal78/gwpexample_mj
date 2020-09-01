@@ -7,7 +7,12 @@ import (
 
 func df(w http.ResponseWriter, r *http.Request) {
 	//fmt.Fprintf(w, "Hello World!")
-	//fmt.Fprintln(w, r.Header)
+	h := r.Header
+	//fmt.Fprintln(w, "\n")
+	fmt.Fprintln(w, h)
+	fmt.Fprintln(w, h["Accept"])
+	fmt.Fprintln(w, h["Accept"][0])
+	fmt.Fprintln(w, h.Get("Accept"))
 	len := r.ContentLength
 	body := make([]byte, len)
 	r.Body.Read(body)
