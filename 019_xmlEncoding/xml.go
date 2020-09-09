@@ -32,6 +32,11 @@ func main() {
 		fmt.Println("Error in creating a file ", err)
 		return
 	}
+	_, err = xmlFile.WriteString(xml.Header)
+	if err != nil {
+		fmt.Println("Error in writing to file ", err)
+		return
+	}
 	encoder := xml.NewEncoder(xmlFile)
 	encoder.Indent("", "\t")
 	err = encoder.Encode(&post)
